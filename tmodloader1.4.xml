@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>TModLoader</Name>
+  <Repository>jacobsmile/tmodloader1.4:latest</Repository>
+  <Registry>https://hub.docker.com/r/jacobsmile/tmodloader1.4</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/JACOBSMILE/tmodloader1.4</Project>
+  <Overview>Easily and quickly set up a configurable Terraria tModLoader server that automatically downloads mods using Steam Workshop IDs.&#xD;
+&#xD;
+ .&#xD;
+&#xD;
+Features&#xD;
+&#xD;
+-Easy download of tModLoader mods from Steam Workshop&#xD;
+&#xD;
+-Scheduled world saving&#xD;
+&#xD;
+-Graceful shutdowns&#xD;
+&#xD;
+-Optional server config for precise setting control&#xD;
+&#xD;
+-GitHub automation to stay up-to-date with tModLoader's release cycle</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/DaBeast893/Unraid-CA-XMLs/master/Terraria-TModLoader.xml</TemplateURL>
+  <Icon>https://www.tmodloader.net/assets/img/tModLoaderLogo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1681353317</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Easily and quickly set up a configurable Terraria tModLoader server that automatically downloads mods using Steam Workshop IDs.&#xD;
+&#xD;
+ .&#xD;
+&#xD;
+Features&#xD;
+&#xD;
+-Easy download of tModLoader mods from Steam Workshop&#xD;
+&#xD;
+-Scheduled world saving&#xD;
+&#xD;
+-Graceful shutdowns&#xD;
+&#xD;
+-Optional server config for precise setting control&#xD;
+&#xD;
+-GitHub automation to stay up-to-date with tModLoader's release cycle</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>7777</HostPort>
+        <ContainerPort>7777</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tmodloader/Worlds</HostDir>
+      <ContainerDir>/home/terraria/.local/share/Terraria/tModLoader/Worlds</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tmodloader/Workshop</HostDir>
+      <ContainerDir>/home/terraria/terraria-server/workshop-mods</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/home/terraria/terraria-server/serverconfig.txt</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>Server is shutting down NOW!</Value>
+      <Name>TMOD_SHUTDOWN_MESSAGE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>10</Value>
+      <Name>TMOD_AUTOSAVE_INTERVAL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>2909886416</Value>
+      <Name>TMOD_AUTODOWNLOAD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>2909886416</Value>
+      <Name>TMOD_ENABLEDMODS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>Welcome to the TModLoader Server!</Value>
+      <Name>TMOD_MOTD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>docker</Value>
+      <Name>TMOD_PASS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>8</Value>
+      <Name>TMOD_MAXPLAYERS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>World</Value>
+      <Name>TMOD_WORLDNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3</Value>
+      <Name>TMOD_WORLDSIZE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>WorldSeed</Value>
+      <Name>TMOD_WORLDSEED</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>No</Value>
+      <Name>TMOD_USECONFIGFILE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1</Value>
+      <Name>TMOD_DIFFICULTY</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>TMOD_SECURE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>en-US</Value>
+      <Name>TMOD_LANGUAGE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>60</Value>
+      <Name>TMOD_NPCSTREAM</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>false</Value>
+      <Name>UPDATE_NOTICE</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="World Files" Target="/home/terraria/.local/share/Terraria/tModLoader/Worlds" Default="" Mode="rw" Description="Container Path: /home/terraria/.local/share/Terraria/tModLoader/Worlds" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tmodloader/Worlds</Config>
+  <Config Name="Workshop Mods" Target="/home/terraria/terraria-server/workshop-mods" Default="" Mode="rw" Description="Container Path: /home/terraria/terraria-server/workshop-mods" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tmodloader/Workshop</Config>
+  <Config Name="Config File" Target="/home/terraria/terraria-server/serverconfig.txt" Default="" Mode="rw" Description="Container Path: /home/terraria/terraria-server/serverconfig.txt" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Shutdown Message" Target="TMOD_SHUTDOWN_MESSAGE" Default="Server is shutting down NOW!" Mode="" Description="The message which will be sent to the in-game chat upon container shutdown.&#13;&#10;" Type="Variable" Display="always" Required="false" Mask="false">Server is shutting down NOW!</Config>
+  <Config Name="Autosave Interval" Target="TMOD_AUTOSAVE_INTERVAL" Default="10" Mode="" Description="The autosave interval (in minutes) in which the World will be saved." Type="Variable" Display="always" Required="false" Mask="false">10</Config>
+  <Config Name="Auto Download Mod List" Target="TMOD_AUTODOWNLOAD" Default="" Mode="" Description="A Comma Separated list of Workshop Mod IDs to download from Steam upon container startup." Type="Variable" Display="always" Required="false" Mask="false">2909886416</Config>
+  <Config Name="Enabled Mods" Target="TMOD_ENABLEDMODS" Default="" Mode="" Description="A Comma Separated list of Workshop Mod IDs to enable on the tModLoader server upon startup." Type="Variable" Display="always" Required="false" Mask="false">2909886416</Config>
+  <Config Name="MOTD" Target="TMOD_MOTD" Default="" Mode="" Description="The Message of the Day which prints in the chat upon joining the server." Type="Variable" Display="always" Required="false" Mask="false">Welcome to the TModLoader Server!</Config>
+  <Config Name="Server Passworrd" Target="TMOD_PASS" Default="docker" Mode="" Description="The password players must supply to join the server. Set this variable to N/A to disable." Type="Variable" Display="always" Required="true" Mask="true">docker</Config>
+  <Config Name="Max Players" Target="TMOD_MAXPLAYERS" Default="8" Mode="" Description="The maximum number of players which can join the server at once." Type="Variable" Display="always" Required="true" Mask="false">8</Config>
+  <Config Name="World Name" Target="TMOD_WORLDNAME" Default="" Mode="" Description="The name of the world file. This is seen in-game as well as will be used for the name of the .WLD file." Type="Variable" Display="always" Required="true" Mask="false">World</Config>
+  <Config Name="World Size" Target="TMOD_WORLDSIZE" Default="" Mode="" Description="When generating a new world, this variable will be used to designate the size. 1 = Small, 2 = Medium, 3 = Large" Type="Variable" Display="always" Required="true" Mask="false">3</Config>
+  <Config Name="World Seed" Target="TMOD_WORLDSEED" Default="" Mode="" Description="The seed for a new world." Type="Variable" Display="always" Required="false" Mask="false">WorldSeed</Config>
+  <Config Name="Use Config File" Target="TMOD_USECONFIGFILE" Default="No" Mode="" Description="If you wish to use a config file to specify MOTD, Password, Max Players, World Name, World Size, World Seed, and a few other additional settings, set this to Yes" Type="Variable" Display="always" Required="true" Mask="false">No</Config>
+  <Config Name="Server Port" Target="7777" Default="7777" Mode="tcp" Description="The port the server will run on. Terraria's default is 7777." Type="Port" Display="always" Required="false" Mask="false">7777</Config>
+  <Config Name="Difficulty" Target="TMOD_DIFFICULTY" Default="" Mode="" Description="When generating a new world (and only when generating a new world), this variable will set the difficulty of the world. 1 = Normal, 2 = Master, 3 = Journey." Type="Variable" Display="always" Required="true" Mask="false">1</Config>
+  <Config Name="Secure Mode" Target="TMOD_SECURE" Default="" Mode="" Description="Adds additional cheat protection. 0 = off, 1 = on" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="Language" Target="TMOD_LANGUAGE" Default="" Mode="" Description="Sets the language for the server. Available options are: en-US (English), de-DE (German), it-IT (Italian), fr-FR (French), es-ES (Spanish), ru-RU (Russian), zh-Hans (Chinese), pt-BR (Portuguese), pl-PL (Polish)." Type="Variable" Display="always" Required="false" Mask="false">en-US</Config>
+  <Config Name="NPC Stream" Target="TMOD_NPCSTREAM" Default="" Mode="" Description="Reduces enemy skipping, but increases bandwidth usage. The lower the number, the less skipping will happeb, but more data is sent. 0 is off." Type="Variable" Display="always" Required="false" Mask="false">60</Config>
+  <Config Name="Show Update Banner" Target="UPDATE_NOTICE" Default="" Mode="" Description="Show update notices [true/false]." Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+</Container>
