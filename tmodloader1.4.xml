@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://github.com/JACOBSMILE/tmodloader1.4/issues</Support>
   <Project>https://github.com/JACOBSMILE/tmodloader1.4</Project>
   <Overview>Easily and quickly set up a configurable Terraria tModLoader server that automatically downloads mods using Steam Workshop IDs.&#xD;
 &#xD;
