@@ -61,18 +61,13 @@ Features&#xD;
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/tmodloader/Worlds</HostDir>
-      <ContainerDir>/home/terraria/.local/share/Terraria/tModLoader/Worlds</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/mnt/user/appdata/tmodloader/Workshop</HostDir>
-      <ContainerDir>/home/terraria/terraria-server/workshop-mods</ContainerDir>
+      <HostDir>/mnt/user/appdata/tmodloader/data</HostDir>
+      <ContainerDir>/data</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
       <HostDir/>
-      <ContainerDir>/home/terraria/terraria-server/serverconfig.txt</ContainerDir>
+      <ContainerDir>/terraria/terraria-server/serverconfig.txt</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -152,16 +147,10 @@ Features&#xD;
       <Name>TMOD_NPCSTREAM</Name>
       <Mode/>
     </Variable>
-    <Variable>
-      <Value>false</Value>
-      <Name>UPDATE_NOTICE</Name>
-      <Mode/>
-    </Variable>
   </Environment>
   <Labels/>
-  <Config Name="World Files" Target="/home/terraria/.local/share/Terraria/tModLoader/Worlds" Default="" Mode="rw" Description="Container Path: /home/terraria/.local/share/Terraria/tModLoader/Worlds" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tmodloader/Worlds</Config>
-  <Config Name="Workshop Mods" Target="/home/terraria/terraria-server/workshop-mods" Default="" Mode="rw" Description="Container Path: /home/terraria/terraria-server/workshop-mods" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tmodloader/Workshop</Config>
-  <Config Name="Config File" Target="/home/terraria/terraria-server/serverconfig.txt" Default="" Mode="rw" Description="Container Path: /home/terraria/terraria-server/serverconfig.txt" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Data Directory" Target="/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tmodloader/data</Config>
+  <Config Name="Config File" Target="/terraria/terraria-server/serverconfig.txt" Default="" Mode="rw" Description="Container Path: /terraria/terraria-server/serverconfig.txt" Type="Path" Display="always" Required="false" Mask="false"/>
   <Config Name="Shutdown Message" Target="TMOD_SHUTDOWN_MESSAGE" Default="Server is shutting down NOW!" Mode="" Description="The message which will be sent to the in-game chat upon container shutdown.&#13;&#10;" Type="Variable" Display="always" Required="false" Mask="false">Server is shutting down NOW!</Config>
   <Config Name="Autosave Interval" Target="TMOD_AUTOSAVE_INTERVAL" Default="10" Mode="" Description="The autosave interval (in minutes) in which the World will be saved." Type="Variable" Display="always" Required="false" Mask="false">10</Config>
   <Config Name="Auto Download Mod List" Target="TMOD_AUTODOWNLOAD" Default="" Mode="" Description="A Comma Separated list of Workshop Mod IDs to download from Steam upon container startup. More information on Mod Workshop IDs can be found on the Github README." Type="Variable" Display="always" Required="false" Mask="false">2909886416</Config>
@@ -178,5 +167,4 @@ Features&#xD;
   <Config Name="Secure Mode" Target="TMOD_SECURE" Default="" Mode="" Description="Adds additional cheat protection. 0 = off, 1 = on" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="Language" Target="TMOD_LANGUAGE" Default="" Mode="" Description="Sets the language for the server. Available options are: en-US (English), de-DE (German), it-IT (Italian), fr-FR (French), es-ES (Spanish), ru-RU (Russian), zh-Hans (Chinese), pt-BR (Portuguese), pl-PL (Polish)." Type="Variable" Display="always" Required="false" Mask="false">en-US</Config>
   <Config Name="NPC Stream" Target="TMOD_NPCSTREAM" Default="" Mode="" Description="Reduces enemy skipping, but increases bandwidth usage. The lower the number, the less skipping will happeb, but more data is sent. 0 is off." Type="Variable" Display="always" Required="false" Mask="false">60</Config>
-  <Config Name="Show Update Banner" Target="UPDATE_NOTICE" Default="" Mode="" Description="Show update notices [true/false]." Type="Variable" Display="always" Required="false" Mask="false">false</Config>
 </Container>
